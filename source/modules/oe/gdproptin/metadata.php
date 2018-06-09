@@ -30,12 +30,12 @@ $sMetadataVersion = '1.1';
 $aModule = array(
     'id'          => 'oegdproptin',
     'title'       => array(
-        'de' => 'GDPR Opt-in',
-        'en' => 'GDPR Opt-in',
+        'de' => 'GDPR Opt-in, ROXID Version',
+        'en' => 'GDPR Opt-in, ROXID Version',
     ),
     'description' => array(
-        'de' => 'Das Modul stellt Opt-in-Funktionalit&auml;t f&uuml;r die Datenschutz-Grundverordnung (DSGVO) bereit',
-        'en' => 'This module provides the opt-in functionality for the European General Data Protection Regulation (GDPR)',
+        'de' => 'Das Modul stellt Opt-in-Funktionalit&auml;t f&uuml;r die Datenschutz-Grundverordnung (DSGVO) bereit. Angepasst für ROXID.',
+        'en' => 'This module provides the opt-in functionality for the European General Data Protection Regulation (GDPR). Modified for ROXID.',
     ),
     'thumbnail'   => 'out/pictures/logo.png',
     'version'     => '1.1.0',
@@ -85,6 +85,11 @@ $aModule = array(
         array(
             'template' => 'form/user_checkout_change.tpl',
             'block'    => 'user_checkout_shipping_feedback',
+            'file'     => 'views/blocks/user_checkout_shipping_feedback.tpl',
+        ),
+        array(
+            'template' => 'form/fieldset/user_shipping.tpl',
+            'block'    => 'form_user_shipping_address_inner',
             'file'     => 'views/blocks/user_checkout_shipping_feedback.tpl',
         ),
         array(

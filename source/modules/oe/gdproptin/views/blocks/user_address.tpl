@@ -15,6 +15,7 @@
         [{else}]
            [{oxscript add="$('#showShipAddress').change( function() { $('#GdprShippingAddressOptin').toggle($(this).is(':not(:checked)')); });"}]
         [{/if}]
+    [{elseif strpos($oViewConf->getActiveTheme(), "roxid") !== false}]
     [{else}]
         [{if $delivadr}]
             [{oxscript add="$('#showShipAddress').change( function() { $('#GdprShippingAddressOptin, #shippingAddressForm').hide($(this).is(':checked'));});"}]
@@ -60,6 +61,8 @@
     [{/strip}]
 [{/capture}]
 
-[{oxscript add=$optinValidationJS}]
+[{if strpos($oViewConf->getActiveTheme(), "roxid") === false}]}]
+    [{oxscript add=$optinValidationJS}]
+[{/if}]
 
 [{$smarty.block.parent}]

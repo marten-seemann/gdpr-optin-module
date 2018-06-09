@@ -18,6 +18,20 @@
                 <li>
                     <div class="inlineError">[{$oError->getOxMessage()}]</div>
             [{/if}]
+    [{elseif strpos($oViewConf->getActiveTheme(), "roxid") !== false}]
+        <div class="form-group">
+	        <div class="col-sm-16 col-sm-offset-8 col-xs-14 col-xs-offset-10">
+	            <div class="checkbox">
+	                <label for="oegdproptin_userregistration">
+	                    <input type="checkbox" name="oegdproptin_userregistration" id="oegdproptin_userregistration" value="1" required> [{oxmultilang ident="OEGDPROPTIN_USER_REGISTRATION_OPTIN"}]
+	                </label>
+	            </div>
+	            [{if $Errors.oegdproptin_userregistration}]
+	                [{assign var=oError value=$Errors.oegdproptin_userregistration.0}]
+	                <div class="text-danger">[{$oError->getOxMessage()}]</div>
+	            [{/if}]
+	        </div>
+    	</div>
     [{else}]
         <div class="col-lg-9 col-lg-offset-3">
             <div class="checkbox">

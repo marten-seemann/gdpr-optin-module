@@ -1,31 +1,48 @@
 [{$smarty.block.parent}]
 
-[{if !isset($oConfig)}]
-  [{assign var="oConfig" value=$oViewConf->getConfig()}]
-[{/if}]
+[{if $smarty.template!="form/user_checkout_change.tpl" || strpos($oViewConf->getActiveTheme(), "roxid") === false}]
+  [{if !isset($oConfig)}]
+    [{assign var="oConfig" value=$oViewConf->getConfig()}]
+  [{/if}]
 
-[{if true == $oConfig->getConfigParam('blOeGdprOptinDeliveryAddress')}]
-  [{if $oViewConf->getActiveTheme()=='azure'}]
-    <p id="GdprOptinShipAddress" style="[{if $delivadr || !$oView->showShipAddress()}]display: none;[{/if}]">
-      <input type="hidden" class="hidden" id="oegdproptin_changeDelAddress" name="oegdproptin_changeDelAddress" value="0">
-      <input type="checkbox" name="oegdproptin_deliveryaddress" id="oegdproptin_deliveryaddress" value="1">
-      <label for="oegdproptin_deliveryaddress"><strong>[{oxmultilang ident="OEGDPROPTIN_STORE_DELIVERY_ADDRESS"}]<strong></label>
-      <div id="oegdproptin_deliveryaddress_error" style="display:none;" class="inlineError">[{oxmultilang ident="OEGDPROPTIN_CONFIRM_USER_REGISTRATION_OPTIN" }]</div>
-  </p>
-  [{else}]
-    <div class="form-group[{if $Errors.oegdproptin_deliveryaddress}] oxInValid[{/if}]" id="GdprOptinShipAddress" class="checkbox" style="display: none;">
-      <div class="col-lg-9 col-lg-offset-3">
-        <div class="checkbox">
-          <label for="oegdproptin_deliveryaddress">
-            <input type="hidden" class="hidden" id="oegdproptin_changeDelAddress" name="oegdproptin_changeDelAddress" value="0">
-            <input type="checkbox" name="oegdproptin_deliveryaddress" id="oegdproptin_deliveryaddress" value="1"> <strong>[{oxmultilang ident="OEGDPROPTIN_STORE_DELIVERY_ADDRESS"}]<strong>
-          </label>
+  [{if true == $oConfig->getConfigParam('blOeGdprOptinDeliveryAddress')}]
+    [{if $oViewConf->getActiveTheme()=='azure'}]
+      <p id="GdprOptinShipAddress" style="[{if $delivadr || !$oView->showShipAddress()}]display: none;[{/if}]">
+        <input type="hidden" class="hidden" id="oegdproptin_changeDelAddress" name="oegdproptin_changeDelAddress" value="0">
+        <input type="checkbox" name="oegdproptin_deliveryaddress" id="oegdproptin_deliveryaddress" value="1">
+        <label for="oegdproptin_deliveryaddress"><strong>[{oxmultilang ident="OEGDPROPTIN_STORE_DELIVERY_ADDRESS"}]<strong></label>
+        <div id="oegdproptin_deliveryaddress_error" style="display:none;" class="inlineError">[{oxmultilang ident="OEGDPROPTIN_CONFIRM_USER_REGISTRATION_OPTIN" }]</div>
+    </p>
+    [{elseif strpos($oViewConf->getActiveTheme(), "roxid") !== false}]
+    <div class="form-group[{if $Errors.oegdproptin_deliveryaddress}] oxInValid[{/if}]" id="GdprOptinShipAddress" class="checkbox">
+        <div class="col-sm-offset-8 col-sm-16">
+          <div class="checkbox">
+            <label for="oegdproptin_deliveryaddress">
+              <input type="checkbox" name="oegdproptin_deliveryaddress" id="oegdproptin_deliveryaddress" value="1" data-error="[{oxmultilang ident="OEGDPROPTIN_CONFIRM_USER_REGISTRATION_OPTIN" }]" required> [{oxmultilang ident="OEGDPROPTIN_STORE_DELIVERY_ADDRESS"}]
+              <input type="hidden" class="hidden" id="oegdproptin_changeDelAddress" name="oegdproptin_changeDelAddress" value="0">
+            </label>
+          </div>
+        </div>
+        <div class="col-sm-offset-8 col-sm-16">
+          <div id="oegdproptin_deliveryaddress_error" style="display:none;" class="text-danger">[{oxmultilang ident="OEGDPROPTIN_CONFIRM_USER_REGISTRATION_OPTIN" }]</div>
+          <div class="help-block"></div>
         </div>
       </div>
-      <div class="col-lg-9 col-lg-offset-3">
-         <div id="oegdproptin_deliveryaddress_error" style="display:none;" class="text-danger">[{oxmultilang ident="OEGDPROPTIN_CONFIRM_USER_REGISTRATION_OPTIN" }]</div>
-         <div class="help-block"></div>
+    [{else}]
+      <div class="form-group[{if $Errors.oegdproptin_deliveryaddress}] oxInValid[{/if}]" id="GdprOptinShipAddress" class="checkbox" style="display: none;">
+        <div class="col-lg-9 col-lg-offset-3">
+          <div class="checkbox">
+            <label for="oegdproptin_deliveryaddress">
+              <input type="hidden" class="hidden" id="oegdproptin_changeDelAddress" name="oegdproptin_changeDelAddress" value="0">
+              <input type="checkbox" name="oegdproptin_deliveryaddress" id="oegdproptin_deliveryaddress" value="1"> <strong>[{oxmultilang ident="OEGDPROPTIN_STORE_DELIVERY_ADDRESS"}]<strong>
+            </label>
+          </div>
+        </div>
+        <div class="col-lg-9 col-lg-offset-3">
+          <div id="oegdproptin_deliveryaddress_error" style="display:none;" class="text-danger">[{oxmultilang ident="OEGDPROPTIN_CONFIRM_USER_REGISTRATION_OPTIN" }]</div>
+          <div class="help-block"></div>
+        </div>
       </div>
-    </div>
+    [{/if}]
   [{/if}]
 [{/if}]

@@ -18,11 +18,8 @@
         <div style="margin-top:10px;" class="rvw_oegdproptin_block">
             <input type="hidden" name="rvw_oegdproptin" value="0">
             <label for="rvw_oegdproptin">
-                <input type="checkbox"
-                       name="rvw_oegdproptin"
-                       id="rvw_oegdproptin"
-                       value="1">
-                <strong>[{oxmultilang ident="OEGDPROPTIN_REVIEW_FORM_MESSAGE" }]</strong>
+                <input type="checkbox" name="rvw_oegdproptin" id="rvw_oegdproptin" value="1" data-error="[{oxmultilang ident="OEGDPROPTIN_REVIEW_FORM_ERROR_MESSAGE" }]" required>
+                [{oxmultilang ident="OEGDPROPTIN_REVIEW_FORM_MESSAGE" }]
             </label>
 
             <div id="rvw_oegdproptin_error"
