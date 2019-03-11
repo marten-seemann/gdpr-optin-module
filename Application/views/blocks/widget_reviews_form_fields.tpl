@@ -13,23 +13,37 @@
 
 [{capture name="optIn" assign="optIn"}]
     [{if $oView->isReviewOptInValidationRequired()}]
-        <div style="margin-top:10px;" class="rvw_oegdproptin_block">
+        [{if strpos($oViewConf->getActiveTheme(), "roxid") !== false}]
             <input type="hidden" name="rvw_oegdproptin" value="0">
-            <label for="rvw_oegdproptin">
-                <input type="checkbox"
-                       name="rvw_oegdproptin"
-                       id="rvw_oegdproptin"
-                       value="1">
-                <strong>[{oxmultilang ident="OEGDPROPTIN_REVIEW_FORM_MESSAGE" }]</strong>
-            </label>
+            <div style="margin-top:10px;" class="form-group checkbox rvw_oegdproptin_block">
+                <label for="rvw_oegdproptin">
+                    <input type="checkbox" name="rvw_oegdproptin" id="rvw_oegdproptin" value="1" required>
+                    [{oxmultilang ident="OEGDPROPTIN_REVIEW_FORM_MESSAGE" }]
+                </label>
 
-            <div id="rvw_oegdproptin_error"
-                 class="[{if !$oView->isReviewOptInError()}]hidden [{/if}] text-danger">
+                <div class="help-block with-errors" style="display:none;">
                     [{oxmultilang ident="OEGDPROPTIN_REVIEW_FORM_ERROR_MESSAGE" }]
+                </div>
             </div>
-        </div>
+        [{else}]
+            <div style="margin-top:10px;" class="rvw_oegdproptin_block">
+                <input type="hidden" name="rvw_oegdproptin" value="0">
+                <label for="rvw_oegdproptin">
+                    <input type="checkbox"
+                        name="rvw_oegdproptin"
+                        id="rvw_oegdproptin"
+                        value="1">
+                    <strong>[{oxmultilang ident="OEGDPROPTIN_REVIEW_FORM_MESSAGE" }]</strong>
+                </label>
 
-        [{oxscript add=$optInJs}]
+                <div id="rvw_oegdproptin_error"
+                    class="[{if !$oView->isReviewOptInError()}]hidden [{/if}] text-danger">
+                        [{oxmultilang ident="OEGDPROPTIN_REVIEW_FORM_ERROR_MESSAGE" }]
+                </div>
+            </div>
+
+            [{oxscript add=$optInJs}]
+        [{/if}]
     [{/if}]
 [{/capture}]
 

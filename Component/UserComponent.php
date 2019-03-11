@@ -19,7 +19,7 @@
  * @copyright (C) OXID eSales AG 2003-2018
  */
 
-namespace OxidEsales\GdprOptinModule\Component;
+namespace SeemannIT\GdprOptinModule\Component;
 
 /**
  * Class oeGdprOptinOxcmp_user.

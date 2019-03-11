@@ -19,13 +19,13 @@
  * @copyright (C) OXID eSales AG 2003-2018
  */
 
-namespace OxidEsales\GdprOptinModule\Controller;
+namespace SeemannIT\GdprOptinModule\Controller;
 
 /**
  * Class ContactController
  * Extends \OxidEsales\Eshop\Application\Controller\ContactController
  *
- * @package OxidEsales\GdprOptinModule\Controller
+ * @package SeemannIT\GdprOptinModule\Controller
  */
 class ContactController extends ContactController_parent
 {

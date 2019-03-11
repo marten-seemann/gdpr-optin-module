@@ -19,13 +19,13 @@
  * @copyright (C) OXID eSales AG 2003-2018
  */
 
-namespace OxidEsales\GdprOptinModule\Controller;
+namespace SeemannIT\GdprOptinModule\Controller;
 
 /**
  * Class ReviewController
  * Extends \OxidEsales\Eshop\Application\Controller\ArticleDetailsController.
  *
- * @package OxidEsales\GdprOptinModule\Controller
+ * @package SeemannIT\GdprOptinModule\Controller
  * @see \OxidEsales\Eshop\Application\Controller\ArticleDetailsController
  */
 class ReviewController extends ReviewController_parent

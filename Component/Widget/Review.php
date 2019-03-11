@@ -19,13 +19,13 @@
  * @copyright (C) OXID eSales AG 2003-2018
  */
 
-namespace OxidEsales\GdprOptinModule\Component\Widget;
+namespace SeemannIT\GdprOptinModule\Component\Widget;
 
 /**
  * Class Review
  * Extends \OxidEsales\Eshop\Application\Component\Widget\Review.
  *
- * @package OxidEsales\GdprOptinModule\Component\Widget
+ * @package SeemannIT\GdprOptinModule\Component\Widget
  * @see \OxidEsales\Eshop\Application\Component\Widget\Review
  */
 class Review extends Review_parent

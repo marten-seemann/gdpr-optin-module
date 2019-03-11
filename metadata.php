@@ -28,27 +28,27 @@ $sMetadataVersion = '2.0';
  * Module information
  */
 $aModule = [
-    'id'          => 'oegdproptin',
+    'id'          => 'gdproptin',
     'title'       => [
-        'de' => 'GDPR Opt-in',
-        'en' => 'GDPR Opt-in',
+        'de' => 'GDPR Opt-in, ROXID Version',
+        'en' => 'GDPR Opt-in, ROXID Version',
     ],
     'description' => [
-        'de' => 'Das Modul stellt Opt-in-Funktionalit&auml;t f&uuml;r die Datenschutz-Grundverordnung (DSGVO) bereit',
-        'en' => 'This module provides the opt-in functionality for the European General Data Protection Regulation (GDPR)',
+        'de' => 'Das Modul stellt Opt-in-Funktionalit&auml;t f&uuml;r die Datenschutz-Grundverordnung (DSGVO) bereit. Angepasst für ROXID. Einstellungen müssen im Original-Modul von OXID vorgenommen werden.',
+        'en' => 'This module provides the opt-in functionality for the European General Data Protection Regulation (GDPR). Modified for ROXID. Settings are available via the original OXID module.',
     ],
     'thumbnail'   => 'logo.png',
     'version'     => '2.1.2',
-    'author'      => 'OXID eSales AG',
+    'author'      => 'OXID eSales AG, Marten Seemann',
     'url'         => 'https://www.oxid-esales.com/',
     'email'       => '',
     'extend'      => [
-        \OxidEsales\Eshop\Application\Component\Widget\ArticleDetails::class => \OxidEsales\GdprOptinModule\Component\Widget\ArticleDetails::class,
-        \OxidEsales\Eshop\Application\Component\Widget\Review::class => \OxidEsales\GdprOptinModule\Component\Widget\Review::class,
-        \OxidEsales\Eshop\Application\Component\UserComponent::class => \OxidEsales\GdprOptinModule\Component\UserComponent::class,
-        \OxidEsales\Eshop\Application\Controller\ReviewController::class => \OxidEsales\GdprOptinModule\Controller\ReviewController::class,
-        \OxidEsales\Eshop\Application\Controller\ArticleDetailsController::class => \OxidEsales\GdprOptinModule\Controller\ArticleDetailsController::class,
-        \OxidEsales\Eshop\Application\Controller\ContactController::class => \OxidEsales\GdprOptinModule\Controller\ContactController::class
+        \OxidEsales\Eshop\Application\Component\Widget\ArticleDetails::class => \SeemannIT\GdprOptinModule\Component\Widget\ArticleDetails::class,
+        \OxidEsales\Eshop\Application\Component\Widget\Review::class => \SeemannIT\GdprOptinModule\Component\Widget\Review::class,
+        \OxidEsales\Eshop\Application\Component\UserComponent::class => \SeemannIT\GdprOptinModule\Component\UserComponent::class,
+        \OxidEsales\Eshop\Application\Controller\ReviewController::class => \SeemannIT\GdprOptinModule\Controller\ReviewController::class,
+        \OxidEsales\Eshop\Application\Controller\ArticleDetailsController::class => \SeemannIT\GdprOptinModule\Controller\ArticleDetailsController::class,
+        \OxidEsales\Eshop\Application\Controller\ContactController::class => \SeemannIT\GdprOptinModule\Controller\ContactController::class
     ],
     'blocks'      => [
         [
@@ -76,10 +76,22 @@ $aModule = [
             'block'    => 'user_checkout_change',
             'file'     => 'Application/views/blocks/user_checkout_change.tpl',
         ],
+        // added for ROXID
+        [ 
+            'template' => 'form/fieldset/user_shipping.tpl',
+            'block'    => 'form_user_shipping_address_inner',
+            'file'     => 'Application/views/blocks/user_checkout_shipping_feedback.tpl',
+        ],
         [
             'template' => 'form/user_checkout_change.tpl',
             'block'    => 'user_checkout_shipping_feedback',
             'file'     => 'Application/views/blocks/user_checkout_shipping_feedback.tpl',
+        ],
+        // added for ROXID
+        [ 
+            'template' => 'form/fieldset/user_billing.tpl',
+            'block'    => 'form_user_billing_address_inner',
+            'file'     => 'Application/views/blocks/user_checkout_billing_feedback.tpl',
         ],
         [
             'template' => 'form/user_checkout_change.tpl',
@@ -102,41 +114,9 @@ $aModule = [
             'file'     => 'Application/views/blocks/widget_reviews_form_fields.tpl',
         ]
     ],
-    'settings'    => [
-        [
-            'group' => 'oegdproptin_settings',
-            'name' => 'blOeGdprOptinInvoiceAddress',
-            'type' => 'bool',
-            'value' => 'false'
-        ],
-        [
-            'group' => 'oegdproptin_settings',
-            'name' => 'blOeGdprOptinDeliveryAddress',
-            'type' => 'bool',
-            'value' => 'false'
-        ],
-        [
-            'group' => 'oegdproptin_settings',
-            'name'  => 'blOeGdprOptinUserRegistration',
-            'type'  => 'bool',
-            'value' => 'false'
-        ],
-        [
-            'group' => 'oegdproptin_settings',
-            'name' => 'blOeGdprOptinProductReviews',
-            'type' => 'bool',
-            'value' => 'false'
-        ],
-        [
-            'group' => 'oegdproptin_contact_form',
-            'name' => 'OeGdprOptinContactFormMethod',
-            'type' => 'select',
-            'value' => 'deletion',
-            'constraints' => 'deletion|statistical',
-        ],
-    ],
+    'settings'    => [ ],
     'events'      => [
-        'onActivate'   => '\OxidEsales\GdprOptinModule\Core\GdprOptinModule::onActivate',
-        'onDeactivate' => '\OxidEsales\GdprOptinModule\Core\GdprOptinModule::onDeactivate',
+        'onActivate'   => '\SeemannIT\GdprOptinModule\Core\GdprOptinModule::onActivate',
+        'onDeactivate' => '\SeemannIT\GdprOptinModule\Core\GdprOptinModule::onDeactivate',
     ],
 ];

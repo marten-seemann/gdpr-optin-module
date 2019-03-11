@@ -19,12 +19,12 @@
  * @copyright (C) OXID eSales AG 2003-2018
  */
 
-namespace OxidEsales\GdprOptinModule\Tests\Integration;
+namespace SeemannIT\GdprOptinModule\Tests\Integration;
 
 /**
  * Class FrontendTest
  *
- * @package OxidEsales\GdprOptinModule\Tests\Integration
+ * @package SeemannIT\GdprOptinModule\Tests\Integration
  */
 class FrontendTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {

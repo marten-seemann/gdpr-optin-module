@@ -19,7 +19,7 @@
  * @copyright (C) OXID eSales AG 2003-2018
  */
 
-namespace OxidEsales\GdprOptinModule\Core;
+namespace SeemannIT\GdprOptinModule\Core;
 
 /**
  * Class GdprOptinModule
@@ -27,7 +27,7 @@ namespace OxidEsales\GdprOptinModule\Core;
  *
  * @codeCoverageIgnore
  *
- * @package OxidEsales\GdprOptinModule\Core
+ * @package SeemannIT\GdprOptinModule\Core
  */
 class GdprOptinModule extends \OxidEsales\Eshop\Core\Module\Module
 {

@@ -1,5 +1,5 @@
-GDPR opt-in module
-==================
+GDPR opt-in module, modified for ROXID
+======================================
 
 Module adds opt-in functionality which is required for GDPR law.
 
