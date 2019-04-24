@@ -38,7 +38,7 @@ $aModule = [
         'en' => 'This module provides the opt-in functionality for the European General Data Protection Regulation (GDPR). Modified for ROXID. Settings are available via the original OXID module.',
     ],
     'thumbnail'   => 'logo.png',
-    'version'     => '2.1.2',
+    'version'     => '100.0.0',
     'author'      => 'OXID eSales AG, Marten Seemann',
     'url'         => 'https://www.oxid-esales.com/',
     'email'       => '',
