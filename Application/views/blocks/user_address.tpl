@@ -8,7 +8,15 @@
 
 [{if true == $oConfig->getConfigParam('blOeGdprOptinDeliveryAddress')}]
     [{if strpos($oViewConf->getActiveTheme(), "roxid") !== false}]
-        [{oxscript add="$('#editShippingAddress, #newAddress').click( function() { $('#GdprOptinShipAddress input[type=checkbox]').prop('required', 'required'); return false; }); "}]
+        [{oxscript add="
+            var cbShip = $('#GdprOptinShipAddress input[type=checkbox]');
+            cbShip.parents('form').one('submit', function(ev) {
+                if(cbShip.is(':visible')) {
+                    cbShip.prop('required', 'required');
+                    ev.preventDefault();
+                }
+            });
+        "}]
     [{else}]
         [{if $delivadr}]
             [{oxscript add="$('#showShipAddress').change( function() { $('#GdprShippingAddressOptin, #shippingAddressForm').hide($(this).is(':checked'));});"}]
@@ -22,7 +30,15 @@
 
 [{if true == $oConfig->getConfigParam('blOeGdprOptinInvoiceAddress')}]
     [{if strpos($oViewConf->getActiveTheme(), "roxid") !== false}]
-        [{oxscript add="$('#userChangeAddress').click( function() { $('#GdprInvoiceAddressOptin input[type=checkbox]').prop('required', 'required'); return false;});"}]
+        [{oxscript add="
+            var cbInv = $('#GdprInvoiceAddressOptin input[type=checkbox]');
+            cbInv.parents('form').one('submit', function(ev) {
+                if(cbInv.is(':visible')) {
+                    cbInv.prop('required', 'required');
+                    ev.preventDefault();
+                }
+            });
+        "}]
     [{else}]
         [{oxscript add="$('#userChangeAddress').click( function() { $('#GdprInvoiceAddressOptin').show();$('#userChangeAddress').hide();return false;});"}]
     [{/if}]
